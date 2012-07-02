@@ -1,29 +1,22 @@
-JPaxos 1.0
+S-Paxos 1.0
 ==========
 
 Description
 -----------
 
-JPaxos is a Java library and runtime system for efficient state machine
-replication. With JPaxos it is very easy to make a user-provided service
-tolerant to machine crashes. Our system supports the crash-recovery model of
-failure and tolerates message loss and communication delays.
+S-Paxos is a Java implementation of Paxos with focus on high-throughput and scalability. 
+S-Paxos is built on top of JPaxos (https://github.com/nfsantos/JPaxos), an efficient
+multi-threaded implementation of Paxos, extending it with techniques that distribute
+the load that is usually concentrated at the leader across all replicas. This allows
+all replicas to contribute equally to the work of receiving and disseminating client
+requests, thereby greatly alleviating the bottleneck at the leader. As a result, 
+S-Paxos achieves in general much higher throughputs than a leader-centric implementation
+of Paxos, and is also able to increase its performance with the number of replicas
+(up to 7-11 replicas).
 
 You are free to use JPaxos as an experimental platform for research into
 software-based replication, or as a library for your commercial products,
 provided that the LGPL3.0 licence is respected (see the LICENCE file).
-
-Our system implementation is based on solid theoretical foundations, following
-the state-of-the-art in group communication research. We intend to publish some
-of the scientific results of the JPaxos project in the future.
-
-
-Developer resources
--------------------
-
-Documentation: http://www.it-soa.eu/jpaxos
-
-Discussion group: http://groups.google.com/group/jpaxos
 
 
 License
@@ -35,21 +28,12 @@ This software is distributed under the LGPL licence.
 Contact and authors
 -------------------
 
-JPaxos is joint work between the Distributed System Laboratory (LSR-EPFL)
-and Poznan University of Technology (PUT).
-Institutional pages:
-
-* EPFL: http://lsrwww.epfl.ch/cms/page-55735-en.html
-* PUT:  http://www.it-soa.pl/jpaxos
+S-Paxos was developed at the Distributed System Laboratory (LSR-EPFL), based
+on previous work done in collaboration with the Poznan University of Technology (PUT).
 
 Contributors:
-From LSR-EPFL:
-
 * Nuno Santos
+* Zarko Milosevic
+* Martin Biely
 * Andre Schiper
 
-From PUT:
-
-* Jan Konczak
-* Tomasz Zurkowski
-* Pawel T. Wojciechowski
